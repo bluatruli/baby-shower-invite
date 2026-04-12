@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Georgia', serif;
+    background-color: #fdfdfd;
+    overflow-x: hidden;
+}
+
+/*---- Envelope View ----*/
+#envelope-view {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f0eb;
+    transition: opacity 1s ease;
+}
+
+.tap-text {
+    margin-top: 40px;
+    color: #666;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {opacity: 1;}
+    50% {opacity: 0.5;}
+}
+    /*---- Envelope Construction ----*/
+.envelope-wrapper {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.envelope-back, .envelope-front, .envelope-flap, .card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.envelope-back {
+    background-color: #c9ab81;
+}
+
+.envelope-front { 
+    background-color: #d8bb92;
+    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100% );
+    z-index: 3;
+}
+
+.envelope-flap {
+    background-color: #e0c59f;
+    clip-path: polygon(0 0, 100% 0, 50% 50%);
+    z-index: 4;
+    transform-origin: top;
+    transition: transform 0.6s ease-in-out;
+}
+
+/*--- The Card Inside ---*/
+.card {
+    background-color: white;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 5px;
+    left: 5px;
+    width: 290px;
+    height: 190px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+    transition-delay: 0.6s;
+}
+
+/*---- animation classes ----*/
+.envelope-wrapper.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope-wrapper.open .card {
+    transform: translateY(-150%) scale(3);
+    opacity: 0;
+}
+
+/*---- invitation view ----*/
+#invitation-view {
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/042/235/888/non_2x/sakura-flower-background-cherry-blossom-branch-border-free-png.png');
+    background-size: cover;
+}
+
+#invitation-view.visible {
+    opacity: 1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.invitation-card {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #fbf6f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #4a3b32;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/*---- typography ----*/
+.header-text h2 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: normal;
+}
+
+.header-text h1 {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    margin-bottom: -10px;
+}
+
+.script-text {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.name-text {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+.small-caps {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.logistics {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.rsvp {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/*---- Graphics ----*/
+.main-graphic img {
+    width: 250px;
+    height: auto;
+    margin: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+/*Floating Decorations*/
+.floating-decor {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.decor-1 {
+    top: 5%;
+    left: 10%;
+    width: 50px;
+}
+
+.decor-2 {
+    top: 35%;
+    right: 5%;
+    width: 60px;
+}
+
+.decor-3 {
+    bottom: 20%;
+    right: 15%;
+    width: 45px;
+    transform: rotate(-15deg);
+}
