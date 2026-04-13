@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 invitationView.classList.add("visible");
             }, 50);
             
-        }, 1600);
+        }, 2600);
     });
 
     const observer = new IntersectionObserver((entries) => {
