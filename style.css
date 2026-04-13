@@ -28,6 +28,12 @@ body, html {
     animation: pulse 2s infinite;
 }
 
+.envelope-wrapper.open ~ .tap-text {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
 @keyframes pulse {
     0%, 100% {opacity: 1;}
     50% {opacity: 0.5;}
@@ -94,17 +100,15 @@ body, html {
 @keyframes pullAndFly {
     0% {
         transform: translateY(0) scale(1);
-        opacity: 1;
     }
 
     40% {
         transform: translateY(-120%) scale(1);
-        opacity: 1;
     }
 
     100% {
-        transform: translateY(-120%) scale(4);
-        opacity: 0;
+        transform: translateY(-120%) scale(10);
+        z-index: 5;
     }
 }
 
