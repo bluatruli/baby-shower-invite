@@ -5,30 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baby Shower Invitation</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="envelope-view">
-        <div class="envelope-wrapper" id="envelope">
-            <div class="envelope-back"></div>
+        <div class="steamer-wrapper" id="steamer">
+            <img src="images/steamer-bottom.png" class="steamer-bottom" alt="">
             <div class="card">
                 <p>Estas invitado!</p>
             </div>
-            <div class="envelope-front"></div>
-            <div class="envelope-flap"></div>
+            <img src="images/steamer-lid.PNG" class="steamer-lid" alt="">
         </div>
         <p class="tap-text">Oprime para abrir</p>
     </div>
 
     <div id="invitation-view" class="hidden">
         <div class="invitation-card">
-            <img src="images/steamer-basket.png" class="floating-decor decor-1 fade-in-on-scroll" style="--delay: 1" alt="">
-            <img src="images/Invite.png" class="floating-decor decor-2 fade-in-on-scroll" style="--delay: 2" alt="">
-            <img src="images/fan.PNG" class="floating-decor decor-3 fade-in-on-scroll" style="--delay: 1" alt="">
-            <img src="images/dumpling.png" class="floating-decor decor-4 fade-in-on-scroll" style="--delay: 2" alt="">
-            <div class="rsvp">
-                <h1>RSVP</h1>
-                <p>Heidy ~ (619)123-4567</p>
+            <div class="floating-decor decor-1 fade-in-on-scroll" style="--delay: 1" >
+                <img src="images/steamer-ultrasound.png" alt="">
+                <h1 class="header-text gender">Es una ni&ntilde;a!</h1>
             </div>
+
+            <img src="images/Invite.png" class="floating-decor decor-2 fade-in-on-scroll" style="--delay: 2" alt="">
+
+            <div class="floating-decor decor-3 fade-in-on-scroll" style="--delay: 1" > 
+                <img src="images/fan.png" alt="">
+                <a class="baby-registry" href="https://my.babylist.com/baby-reg-heidy-molina?session_synced=true">Registro de Bebe</a>
+            </div>
+
+            <div class="floating-decor decor-4 fade-in-on-scroll" style="--delay: 2">   
+                <img src="images/dumpling-says.png" alt="">
+                <div class="diaper-raffle">
+                    <h1 class="header-text">Rifa de pa&ntilde;ales</h1>
+                    <p class="raffle-body">Trae un paquete de pa&ntilde;ales, de cualquier tama&ntilde;o, para participar en in premio!</p>
+                </div>
+            </div>
+            
+            <a href="sms:6192478224?body=Hi%20Heidy!%20I'm%20RSVPing%20for%20the%20baby%20shower!" class="rsvp-button">
+                Haz clic aquí para confirmar tu asistencia
+            </a>
         </div>
     </div>
 

@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const envelope = document.getElementById("envelope");
+    const steamer = document.getElementById("steamer");
     const envelopeView = document.getElementById("envelope-view");
     const invitationView = document.getElementById("invitation-view");
 
-    envelope.addEventListener("click", () => {
-        envelope.classList.add("open");
+    steamer.addEventListener("click", () => {
+        steamer.classList.add("open");
 
         setTimeout(() => {
             envelopeView.classList.add("hidden");
