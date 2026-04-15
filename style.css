@@ -26,13 +26,31 @@ body, html {
 .tap-text {
     margin-top: 40px;
     color: #666;
+    animation: pulse 2s infinite;margin-top: 10px;
+    color: #4a3b32;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
     animation: pulse 2s infinite;
 }
 
-.envelope-wrapper.open ~ .tap-text {
+.bounce-arrow {
+    font-size: 2.5rem;
+    color: #8c6b5d;
+    margin-top: 20px;
+    animation: bounce 1.5s infinite;
+}
+
+.steamer-wrapper.open ~ .tap-text,
+.steamer-wrapper.open ~ .bounce-arrow {
     animation: none;
     opacity: 0;
     transition: opacity 0.2s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
 @keyframes pulse {
@@ -73,11 +91,27 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
     position: absolute;
-    width: 150px;
-    height: 50px;
+    width: 180px;
+    height: 160px;
     z-index: 4;
+    border-radius: 4px;
+    opacity: 0;
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.3); */
+}
+
+.card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.card p {
+    position: absolute;
+    bottom: 12%;
+    font-family: "Pacifico", cursive;
+    color: #765142;
 }
 
 /*---- animation classes ----*/
@@ -100,14 +134,17 @@ body, html {
 
 @keyframes pullAndFly {
     0% {
-        transform: translateY(0) scale(1);
+        opacity: 1;
+        transform: translateY(0) scale(0.3);
     }
 
     40% {
+        opacity: 1;
         transform: translateY(-120%) scale(1);
     }
 
     100% {
+        opacity: 1;
         transform: translateY(-120%) scale(10);
         z-index: 5;
     }
@@ -183,28 +220,31 @@ body, html {
 }
 
 .decor-2 {
-    width: 75%;
+    width: 100%;
     align-self: flex-end;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.195);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
 }
 
 .decor-3 {
     width: 75%;
     height: 100%;
+    rotate: 8deg;
 }
 
 .decor-3 img {
     width: 100%;
+    rotate: 6deg;
 }
 
 .decor-4 {
     width: 100%;
     align-self: flex-end;
-    /* transform: rotate(-15deg); */
+    rotate: -7deg;
 }
 
 .decor-4 img {
     width: 100%;
+    rotate: 9deg;
 }
 
 .diaper-raffle {
@@ -213,6 +253,7 @@ body, html {
     align-items: center;
     position: absolute;
     top: 13%;
+    margin-right: 5%;
 }
 
 .raffle-body {
@@ -235,6 +276,12 @@ body, html {
     transform: translateY(0);
 }
 
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
 .rsvp-button {
     background-color: #8c6b5d;
     color: white;
@@ -245,5 +292,32 @@ body, html {
     font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.rsvp-button:active, .rsvp-button:hover {
+    background-color: #fbf6f0;
+    color: #8c6b5d;
+    border: 2px solid #8c6b5d;
+}
+
+.calendar-button {
+    background-color: #fbf6f0;
+    color: #8c6b5d;
+    border: 2px solid #8c6b5d;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.calendar-button:active, .calendar-button:hover {
+    background-color: #8c6b5d;
+    color: white;
 }

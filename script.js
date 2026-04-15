@@ -31,4 +31,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const hiddenElements = document.querySelectorAll('.fade-in-on-scroll');
     hiddenElements.forEach((el) => observer.observe(el));
+
+    // --- APPLE CALENDAR (.ICS) GENERATOR ---
+const calendarBtn = document.getElementById('calendar-btn');
+
+if (calendarBtn) {
+    calendarBtn.addEventListener('click', () => {
+
+        const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Vega Baby Shower//ES
+BEGIN:VEVENT
+UID:babyshower-heidy@invitation.com
+DTSTAMP:20260101T000000Z
+DTSTART:20260516T230000Z
+DTEND:20260516T040000Z
+SUMMARY:Vega Baby Shower
+LOCATION:3527 47TH ST\\, San Diego\\, CA 92105
+DESCRIPTION:https://my.babylist.com/baby-reg-heidy-molina
+END:VEVENT
+END:VCALENDAR`;
+
+        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+        
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = 'Vega_Baby_Shower.ics';
+        
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+}
 });
