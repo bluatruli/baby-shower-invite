@@ -45,22 +45,26 @@ BEGIN:VEVENT
 UID:babyshower-heidy@invitation.com
 DTSTAMP:20260101T000000Z
 DTSTART:20260516T230000Z
-DTEND:20260516T040000Z
+DTEND:20260517T040000Z
 SUMMARY:Vega Baby Shower
 LOCATION:3527 47TH ST\\, San Diego\\, CA 92105
 DESCRIPTION:https://my.babylist.com/baby-reg-heidy-molina
 END:VEVENT
 END:VCALENDAR`;
 
-        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-        
-        const link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = 'Vega_Baby_Shower.ics';
-        
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    });
-}
+            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+                
+            if (isIOS) {
+                window.location.href = "data:text/calendar;charset=utf8," + encodeURIComponent(icsContent);
+            } else {
+                const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+                const link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = 'Baby_Shower_Heidy.ics'; 
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        });
+    }
 });
