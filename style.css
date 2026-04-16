@@ -192,17 +192,32 @@ body, html {
     color: #765142;
 }
 
-.gender{
+/* .gender{
     position: absolute;
     bottom: 12%;
     width: 100%;
+} */
+
+.gender-curved {
+    width: 100%;
+    overflow: visible;
+    margin-bottom: -36px;
+}
+
+.gender-curved text {
+    font-family: 'Pacifico', cursive;
+    font-size: 32px;
+    fill: #765142;
+    letter-spacing: 2px;
 }
 
 .baby-registry{
     font-family: 'Pacifico', cursive;
     font-size: clamp(1rem, 7vw, 2.2rem);
     letter-spacing: 2%;
-    margin: 5%;
+    width: 80%;
+    align-self: flex-end;
+    transform: rotate(-10deg);
     color:#8c6b5d;
     text-shadow: 2px 2px 4px #4a3b3222;
 }
@@ -226,7 +241,6 @@ body, html {
 
 .decor-3 {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -237,9 +251,7 @@ body, html {
 }
 
 .qr-code {
-    width: 50%;
-    transform: rotate(-10deg);
-    align-self: flex-end;
+    width: 60%;
     margin: 5%;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
 }

@@ -52,15 +52,16 @@ DESCRIPTION:https://my.babylist.com/baby-reg-heidy-molina
 END:VEVENT
 END:VCALENDAR`;
 
-            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-                
+            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) || 
+            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);;
+
             if (isIOS) {
                 window.location.href = "data:text/calendar;charset=utf8," + encodeURIComponent(icsContent);
             } else {
                 const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
                 const link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);
-                link.download = 'Baby_Shower_Heidy.ics'; 
+                link.download = 'Vega_Baby_Shower.ics'; 
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
